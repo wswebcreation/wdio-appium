@@ -1,7 +1,7 @@
 # WebdriverIO and Appium
 Goal of this repository is to get familiar with writing a simple test for a native application and run it on:
 
-1. A local simulator
+1. A local iOS simulator or local Android emulator
 1. Sauce Labs Legacy RDC
 1. Sauce Labs Unified Platform
 
@@ -10,6 +10,8 @@ Goal of this repository is to get familiar with writing a simple test for a nati
 Because we want to start locally we need to install the following things:
 
 - [ ] Install XCODE through the App store
+- [ ] Download Android Studio from [here](https://developer.android.com/studio/) and install it
+    - Follow the instructions to download and setup Android studio and configure your emulators with [this](https://developer.android.com/studio/run/managing-avds) tutorial. 
 - [ ] Install NodeJS:
     - Check if Homebrew is installed by opening a terminal and enter the following command
         
@@ -68,44 +70,54 @@ Because we want to start locally we need to install the following things:
     
     Run this command
     
-        appium-doctor --ios
+        appium-doctor
     
     That will generate an output like this
     
-        info AppiumDoctor Appium Doctor v.1.15.1
-        info AppiumDoctor ### Diagnostic for necessary dependencies starting ###
-        info AppiumDoctor  ✔ The Node.js binary was found at: /Users/wswebcreation/.nvm/versions/node/v12.16.1/bin/node
-        info AppiumDoctor  ✔ Node version is 12.16.1
-        info AppiumDoctor  ✔ Xcode is installed at: /Applications/Xcode.app/Contents/Developer
-        info AppiumDoctor  ✔ Xcode Command Line Tools are installed in: /Applications/Xcode.app/Contents/Developer
-        info AppiumDoctor  ✔ DevToolsSecurity is enabled.
-        info AppiumDoctor  ✔ The Authorization DB is set up properly.
-        info AppiumDoctor  ✔ Carthage was found at: /usr/local/bin/carthage. Installed version is: 0.34.0
-        info AppiumDoctor  ✔ HOME is set to: /Users/wswebcreation
-        info AppiumDoctor ### Diagnostic for necessary dependencies completed, no fix needed. ###
-        info AppiumDoctor
-        info AppiumDoctor ### Diagnostic for optional dependencies starting ###
-        WARN AppiumDoctor  ✖ opencv4nodejs cannot be found.
-        WARN AppiumDoctor  ✖ ffmpeg cannot be found
-        WARN AppiumDoctor  ✖ mjpeg-consumer cannot be found.
-        WARN AppiumDoctor  ✖ set-simulator-location is not installed
-        WARN AppiumDoctor  ✖ idb and idb_companion are not installed
-        info AppiumDoctor  ✔ applesimutils is installed at: /usr/local/bin/applesimutils. Installed versions are: applesimutils 0.7.7
-        info AppiumDoctor  ✔ ios-deploy is installed at: /usr/local/bin/ios-deploy. Installed version is: 1.10.0
-        info AppiumDoctor ### Diagnostic for optional dependencies completed, 5 fixes possible. ###
-        info AppiumDoctor
-        info AppiumDoctor ### Optional Manual Fixes ###
-        info AppiumDoctor The configuration can install optionally. Please do the following manually:
-        WARN AppiumDoctor  ➜ Why opencv4nodejs is needed and how to install it: https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/image-comparison.md
-        WARN AppiumDoctor  ➜ ffmpeg is needed to record screen features. Please read https://www.ffmpeg.org/ to install it
-        WARN AppiumDoctor  ➜ mjpeg-consumer module is required to use MJPEG-over-HTTP features. Please install it with 'npm i -g mjpeg-consumer'.
-        WARN AppiumDoctor  ➜ set-simulator-location is needed to set location for Simulator. Please real https://github.com/lyft/set-simulator-location to install it
-        WARN AppiumDoctor  ➜ Why idb is needed and how to install it: https://github.com/appium/appium-idb
-        info AppiumDoctor
-        info AppiumDoctor ###
-        info AppiumDoctor
-        info AppiumDoctor Bye! Run appium-doctor again when all manual fixes have been applied!
-        info AppiumDoctor
+         info AppiumDoctor Appium Doctor v.1.15.1
+         info AppiumDoctor ### Diagnostic for necessary dependencies starting ###
+         info AppiumDoctor  ✔ The Node.js binary was found at: /Users/wswebcreation/.nvm/versions/node/v12.16.1/bin/node
+         info AppiumDoctor  ✔ Node version is 12.16.1
+         info AppiumDoctor  ✔ Xcode is installed at: /Applications/Xcode.app/Contents/Developer
+         info AppiumDoctor  ✔ Xcode Command Line Tools are installed in: /Applications/Xcode.app/Contents/Developer
+         info AppiumDoctor  ✔ DevToolsSecurity is enabled.
+         info AppiumDoctor  ✔ The Authorization DB is set up properly.
+         info AppiumDoctor  ✔ Carthage was found at: /usr/local/bin/carthage. Installed version is: 0.34.0
+         info AppiumDoctor  ✔ HOME is set to: /Users/wswebcreation
+         info AppiumDoctor  ✔ ANDROID_HOME is set to: /Users/wswebcreation/Library/Android/sdk
+         info AppiumDoctor  ✔ JAVA_HOME is set to: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+         info AppiumDoctor  ✔ adb exists at: /Users/wswebcreation/Library/Android/sdk/platform-tools/adb
+         info AppiumDoctor  ✔ android exists at: /Users/wswebcreation/Library/Android/sdk/tools/android
+         info AppiumDoctor  ✔ emulator exists at: /Users/wswebcreation/Library/Android/sdk/tools/emulator
+         info AppiumDoctor  ✔ Bin directory of $JAVA_HOME is set
+         info AppiumDoctor ### Diagnostic for necessary dependencies completed, no fix needed. ###
+         info AppiumDoctor
+         info AppiumDoctor ### Diagnostic for optional dependencies starting ###
+         WARN AppiumDoctor  ✖ opencv4nodejs cannot be found.
+         WARN AppiumDoctor  ✖ ffmpeg cannot be found
+         WARN AppiumDoctor  ✖ mjpeg-consumer cannot be found.
+         WARN AppiumDoctor  ✖ set-simulator-location is not installed
+         WARN AppiumDoctor  ✖ idb and idb_companion are not installed
+         info AppiumDoctor  ✔ applesimutils is installed at: /usr/local/bin/applesimutils. Installed versions are: applesimutils 0.7.7
+         info AppiumDoctor  ✔ ios-deploy is installed at: /usr/local/bin/ios-deploy. Installed version is: 1.10.0
+         WARN AppiumDoctor  ✖ bundletool.jar cannot be found
+         WARN AppiumDoctor  ✖ gst-launch-1.0 and/or gst-inspect-1.0 cannot be found
+         info AppiumDoctor ### Diagnostic for optional dependencies completed, 7 fixes possible. ###
+         info AppiumDoctor
+         info AppiumDoctor ### Optional Manual Fixes ###
+         info AppiumDoctor The configuration can install optionally. Please do the following manually:
+         WARN AppiumDoctor  ➜ Why opencv4nodejs is needed and how to install it: https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/image-comparison.md
+         WARN AppiumDoctor  ➜ ffmpeg is needed to record screen features. Please read https://www.ffmpeg.org/ to install it
+         WARN AppiumDoctor  ➜ mjpeg-consumer module is required to use MJPEG-over-HTTP features. Please install it with 'npm i -g mjpeg-consumer'.
+         WARN AppiumDoctor  ➜ set-simulator-location is needed to set location for Simulator. Please real https://github.com/lyft/set-simulator-location to install it
+         WARN AppiumDoctor  ➜ Why idb is needed and how to install it: https://github.com/appium/appium-idb
+         WARN AppiumDoctor  ➜ bundletool.jar is used to handle Android App Bundle. Please read http://appium.io/docs/en/writing-running-appium/android/android-appbundle/ to install it
+         WARN AppiumDoctor  ➜ gst-launch-1.0 and gst-inspect-1.0 are used to stream the screen of the device under test. Please read https://appium.io/docs/en/writing-running-appium/android/android-screen-streaming/ to install them and for more details
+         info AppiumDoctor
+         info AppiumDoctor ###
+         info AppiumDoctor
+         info AppiumDoctor Bye! Run appium-doctor again when all manual fixes have been applied!
+         info AppiumDoctor   
     
     Fix the necessary dependencies if they are failing, otherwise you're done with this
     
