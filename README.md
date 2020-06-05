@@ -42,6 +42,12 @@ Because we want to start locally we need to install the following things:
 - [ ] Install carthage with the following command
 
         brew install carthage
+
+- [ ] Install Git if you don't have it yet, you can check that by opening a terminal and enter this command
+
+        git
+
+    You should get some logs about `git`, if not download it from [here](https://git-scm.com/downloads)
         
 - [ ] Install Appium with the following command
     
