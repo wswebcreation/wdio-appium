@@ -111,6 +111,19 @@ Because we want to start locally we need to install the following things:
     
 - [ ] Download Appium desktop from [here](https://github.com/appium/appium-desktop/releases)
 
+### Clone the project
+Clone the project and install all dependencies with the following steps
+
+1. Open a terminal and go to a folder where you want to store your project
+1. Enter
+    
+        git clone https://github.com/wswebcreation/wdio-appium.git
+        
+1. When the clone is successful install all dependencies with by doing the following
+
+        cd wdio-appium
+        npm install
+
 ### Demo apps
 We need to use a demo app, you can download it from [here](https://github.com/saucelabs/sample-app-mobile/releases).
 Create a folder in this project and call it `apps`, download the files there (all 3).
