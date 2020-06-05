@@ -10,6 +10,9 @@ Goal of this repository is to get familiar with writing a simple test for a nati
 Because we want to start locally we need to install the following things:
 
 - [ ] Install XCODE through the App store
+    - When the XCODE is installed open it
+    - Go to the `Preferences > Locations` and select the Command Line Tools
+    - Accept notifications if needed and when done close XCODE again
 - [ ] Download Android Studio from [here](https://developer.android.com/studio/) and install it
     - Follow the instructions to download and setup Android studio and configure your emulators with [this](https://developer.android.com/studio/run/managing-avds) tutorial. 
 - [ ] Install NodeJS:
@@ -119,9 +122,43 @@ Because we want to start locally we need to install the following things:
          info AppiumDoctor Bye! Run appium-doctor again when all manual fixes have been applied!
          info AppiumDoctor   
     
-    Fix the necessary dependencies if they are failing, otherwise you're done with this
+    When appium-doctor can, it will fix the problems for you, otherwise fix them manually. If you have some ENV issues make sure you have set them like this
+    
+        export ANDROID_HOME=/Users/wswebcreation/Library/Android/sdk
+        export JAVA_HOME=$(/usr/libexec/java_home)
+        export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/adb:$ANDROID_HOME/build-tools:$JAVA_HOME/bin
     
 - [ ] Download Appium desktop from [here](https://github.com/appium/appium-desktop/releases)
+    Appium Desktop is an open source app which gives us the ability of the Appium automation server in a UI. It is a combination of a few Appium-related tools:
+    
+    - A graphical interface for the Appium Server. You can set options, start/stop the server, see logs, etc...
+    - An Inspector that you can use to look at your app's elements, get basic information about them, and perform basic interactions with them. This is useful as a way to learn about Appium or as a way to learn about your app so you can write tests for it.
+    
+    > This tool is mainly used to view the UI-hierarchy and locate elements of native apps to be sure that all elements can be found.
+    
+    See [this readme](https://github.com/appium/appium-desktop) about how to use the Appium Desktop.
+    
+    When Appium Destkop is started make sure the Automatic Server-tab is enabled. Use the following settings for Android 
+    (also check [here](./test/configs/wdio.android.local.emu.conf.js))
+    
+        {
+          "deviceName": "{the-name-of-the-emualtor-you-configured-in-android-studio}",
+          "platformName": "Android",
+          "platformVersion": "{verison-of-your-configured-emulator}",
+          "automationName": "UiAutomator2"
+          "app": "{path-to-the-app}",
+        }
+    
+    And the following settings for iOS (also check [here](./test/configs/wdio.ios.local.sim.conf.js))
+    
+        {
+          "deviceName": "{the-exact-name-of-the-simulator-you-want-to-use}",
+          "platformName": "Android",
+          "platformVersion": "{verison-of-your-configured-simulator}",
+          "automationName": "XCUITest"
+          "app": "{path-to-the-app}",
+        }
+
 
 ### Clone the project
 Clone the project and install all dependencies with the following steps
