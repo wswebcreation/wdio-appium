@@ -9,13 +9,13 @@ Goal of this repository is to get familiar with writing a simple test for a nati
 ### Install needed software
 Because we want to start locally we need to install the following things:
 
-- [ ] Install XCODE through the App store
+- Install XCODE through the App store
     - When the XCODE is installed open it
     - Go to the `Preferences > Locations` and select the Command Line Tools
     - Accept notifications if needed and when done close XCODE again
-- [ ] Download Android Studio from [here](https://developer.android.com/studio/) and install it
+- Download Android Studio from [here](https://developer.android.com/studio/) and install it
     - Follow the instructions to download and setup Android studio and configure your emulators with [this](https://developer.android.com/studio/run/managing-avds) tutorial. 
-- [ ] Install NodeJS:
+- Install NodeJS:
     - Check if Homebrew is installed by opening a terminal and enter the following command
         
             brew -v 
@@ -32,29 +32,31 @@ Because we want to start locally we need to install the following things:
             
       After the installation you should be able to check the version with the above command
       
-    - Install NodeJS with the following command
+    - Check if NodeJS is installed by opening a terminal and enter the following command
+    
+            node -v
+            
+      If NodeJS is installed you should see something like this
+            
+            v12.16.1
+      
+      If not then install NodeJS with this command
     
             brew install node
             
-      When you are done you should be able to check the version of NodeJS by entering this command
-      
-            node -v
+      After the installation you should be able to check the version with the above command
 
-      It will give something back like this
-      
-            v12.16.1
-
-- [ ] Install carthage with the following command
+- Install carthage with the following command
 
         brew install carthage
 
-- [ ] Install Git if you don't have it yet, you can check that by opening a terminal and enter this command
+- Install Git if you don't have it yet, you can check that by opening a terminal and enter this command
 
         git
 
     You should get some logs about `git`, if not download it from [here](https://git-scm.com/downloads)
         
-- [ ] Install Appium with the following command
+- Install Appium with the following command
     
         npm install -g appium
         
@@ -64,7 +66,7 @@ Because we want to start locally we need to install the following things:
         
     That should give you the version
 
-- [ ] Install `appium-doctor` with the following command
+- Install `appium-doctor` with the following command
 
          npm install -g appium-doctor
          
@@ -128,7 +130,7 @@ Because we want to start locally we need to install the following things:
         export JAVA_HOME=$(/usr/libexec/java_home)
         export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/adb:$ANDROID_HOME/build-tools:$JAVA_HOME/bin
     
-- [ ] Download Appium desktop from [here](https://github.com/appium/appium-desktop/releases)
+- Download Appium desktop from [here](https://github.com/appium/appium-desktop/releases)
     Appium Desktop is an open source app which gives us the ability of the Appium automation server in a UI. It is a combination of a few Appium-related tools:
     
     - A graphical interface for the Appium Server. You can set options, start/stop the server, see logs, etc...
